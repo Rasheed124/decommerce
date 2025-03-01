@@ -22,10 +22,10 @@ const AnnouncementBar = () => {
 
 type HeaderProps = {
     user: Omit<User, 'passwordHash'> | null;
-    // categorySelector: React.ReactNode;
+    categorySelector: React.ReactNode;
 };
 
-const Header = ({ user }: HeaderProps) => {
+const Header = ({ user, categorySelector }: HeaderProps) => {
   const router = useRouter();
 
   const [isOpen, setIsOpen] = useState<boolean>(true);
@@ -66,22 +66,22 @@ const Header = ({ user }: HeaderProps) => {
     <div className={`w-full transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-y-0' : '-translate-y-full'}`}>
         <AnnouncementBar />
 
-        <div className='w-full flex justify-between items-center py-3 sm:py-4 bg-white/80 shadow-sm border-b border-gray-100 backdrop-blur-sm'>
+        <div className='w-full flex justify-between items-center py-3 sm:py-4 bg-white shadow-sm border-b border-gray-100 backdrop-blur-sm'>
             <div className='flex justify-between items-center container mx-auto px-8'>
                 <div className='flex flex-1 justify-start items-center gap-4 sm:gap-6'>
-                    <button className='text-gray-700 hover:text-gray-900 md:hidden'>
+                    <button className='text-black hover:text-gray-900 md:hidden'>
                         <svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5 sm:h-6 sm:w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
                             <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M4 6h16M4 12h16M4 18h16' />
                         </svg>
                     </button>
 
-                    <nav className='hidden md:flex gap-4 lg:gap-6 text-sm font-medium'>
-                        {/* {categorySelector} */}
+                    <nav className='hidden text-black/50 md:flex gap-4 lg:gap-6 text-sm font-medium'>
+                        {categorySelector}
                         <Link href='#'>Sale</Link>
                     </nav>
                 </div>
 
-                <Link href='#' className='absolute left-1/2 -translate-x-1/2'>
+                <Link href='#' className='absolute text-black/50 font-bold left-1/2 -translate-x-1/2'>
                     <span className='text-xl sm:text-2xl font-bold tracking-tight'>DEAL</span>
                 </Link>
 

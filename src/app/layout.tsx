@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import { getCurrentSession } from "@/actions/auth";
+import { SanityLive } from "@/sanity/lib/live";
+import { getAllCategories } from "@/sanity/lib/client";
+import HeaderCategorySelector from "@/components/layout/HeaderCategorySelector";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,13 +20,14 @@ const RootLayout = async ({
   children: React.ReactNode;
 }>) => {
   const { user } = await getCurrentSession();
-
+  const  categories =  await getAllCategories();
+// 
   return (
       <html lang='en'>
           <body className={`${inter.className} antialiased bg-white min-h-[125vh]`}>
               <Header 
                   user={user}
-                  // categorySelector={<HeaderCategorySelector />}
+                  categorySelector={<HeaderCategorySelector />}
               />
               {/* <Script
                   src='https://cloud.umami.is/script.js'
@@ -39,8 +43,8 @@ const RootLayout = async ({
 
               {children}
 
-              {/* <Cart />
-              <SanityLive /> */}
+              {/* <Cart />*/}
+              <SanityLive /> 
           </body>
       </html>
   );
