@@ -21,7 +21,7 @@ const RootLayout = async ({
 }>) => {
   const { user } = await getCurrentSession();
   const  categories =  await getAllCategories();
-// 
+
   return (
       <html lang='en'>
           <body className={`${inter.className} antialiased bg-white min-h-[125vh]`}>
