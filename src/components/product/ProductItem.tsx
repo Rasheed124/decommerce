@@ -27,7 +27,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
         </div>
 
         <div className='p-4'>
-            <h3 className='text-sm font-medium line-clamp-2 h-10 mb-1'>{product.title}</h3>
+            <h3 className='text-sm text-black font-medium line-clamp-2 h-10 mb-1'>{product.title}</h3>
             <div className='flex flex-col'>
                 <div className='flex items-center gap-2'>
                     <span className='text-lg font-bold text-red-500'>${(product.price || 0).toFixed(2)}</span>

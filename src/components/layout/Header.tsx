@@ -6,6 +6,7 @@ import { User } from "@prisma/client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import HeaderSearchBar from './HeaderSearchBar';
 // import { useShallow } from "zustand/shallow";
 
 const AnnouncementBar = () => {
@@ -86,7 +87,7 @@ const Header = ({ user, categorySelector }: HeaderProps) => {
                 </Link>
 
                 <div className='flex flex-1 justify-end items-center gap-2 sm:gap-4'>
-                    {/* <HeaderSearchBar /> */}
+                    <HeaderSearchBar />
 
                     {user ? (
                         <div className='flex items-center gap-2 sm:gap-4'>
